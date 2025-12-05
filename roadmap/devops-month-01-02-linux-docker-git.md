@@ -53,9 +53,9 @@
 
 ### Mini Challenge
 
-- [ ] Navigate entire project structure chỉ bằng command line
+- [x] Navigate entire project structure chỉ bằng command line
 - [ ] Tạo script đơn giản để organize Downloads folder
-- [ ] Find all .js files trong project: `find . -name "*.js"`
+- [x] Find all .js files trong project: `find . -name "*.js"`
 
 ---
 
