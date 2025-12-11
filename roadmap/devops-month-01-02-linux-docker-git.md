@@ -33,7 +33,7 @@
 - [x] Navigation commands: `cd`, `ls`, `pwd`, `mkdir`, `rm`, `cp`, `mv`
 - [x] File operations: `touch`, `cat`, `less`, `head`, `tail`, `open`
 - [x] Permissions: `chmod`, `chown`, hiểu rwx (read/write/execute)
-- [ ] macOS specific: `pbcopy`, `pbpaste` (clipboard operations)
+- [x] macOS specific: `pbcopy`, `pbpaste` (clipboard operations)
 - [x] Man pages: `man <command>` để đọc documentation
 
 ### Thực Hành
@@ -63,33 +63,33 @@
 
 ### Học
 
-- [ ] Homebrew commands: `brew install`, `brew update`, `brew upgrade`, `brew list`
-- [ ] Homebrew Cask cho GUI apps
+- [x] Homebrew commands: `brew install`, `brew update`, `brew upgrade`, `brew list`
+- [x] Homebrew Cask cho GUI apps
 - [ ] Process management: `ps`, `top`, `htop`, `kill`, `killall`
-- [ ] Node version management: nvm hoặc fnm
+- [x] Node version management: nvm hoặc fnm
 
 ### Thực Hành - Cài Đặt Essential Tools
 
-- [ ] `brew install git`
-- [ ] `brew install node`
-- [ ] `brew install wget curl`
-- [ ] `brew install tree` (visualize directories)
-- [ ] `brew install htop` (better process viewer)
-- [ ] `brew install jq` (JSON parser)
-- [ ] `brew install bat` (better cat)
-- [ ] `brew install ripgrep` (better grep)
-- [ ] `brew install fzf` (fuzzy finder)
+- [x] `brew install git`
+- [x] `brew install node`
+- [x] `brew install wget curl`
+- [x] `brew install tree` (visualize directories)
+- [x] `brew install htop` (better process viewer)
+- [x] `brew install jq` (JSON parser)
+- [x] `brew install bat` (better cat)
+- [x] `brew install ripgrep` (better grep)
+- [x] `brew install fzf` (fuzzy finder)
 
 ### Thực Hành - GUI Apps
 
-- [ ] `brew install --cask visual-studio-code`
-- [ ] `brew install --cask docker`
-- [ ] `brew install --cask postman`
-- [ ] `brew install --cask rectangle` (window management)
+- [x] `brew install --cask visual-studio-code`
+- [x] `brew install --cask docker`
+- [x] `brew install --cask postman`
+- [x] `brew install --cask rectangle` (window management)
 
 ### Thực Hành - Process Management
 
-- [ ] Chạy Node.js app và monitor với `htop`
+- [x] Chạy Node.js app và monitor với `htop`
 - [ ] Find process by port: `lsof -i :3000`
 - [ ] Kill process holding port: `kill -9 $(lsof -ti:3000)`
 - [ ] Run multiple Node.js instances trên different ports
@@ -97,10 +97,10 @@
 
 ### Mini Project
 
-- [ ] Setup Node.js app với multiple instances
-- [ ] Monitor CPU/memory usage của từng instance
+- [x] Setup Node.js app với multiple instances
+- [x] Monitor CPU/memory usage của từng instance
 - [ ] Script để start/stop/restart processes
-- [ ] Kill all Node processes với một command
+- [x] Kill all Node processes với một command
 
 ---
 
@@ -108,19 +108,19 @@
 
 ### Học
 
-- [ ] IP addresses: localhost, 127.0.0.1, 0.0.0.0
-- [ ] Ports: well-known ports (80, 443, 22, 3000)
-- [ ] DNS: domain name resolution
-- [ ] Network commands: `ping`, `curl`, `netstat`, `lsof`
-- [ ] `/etc/hosts` file để custom domains
+- [x] IP addresses: localhost, 127.0.0.1, 0.0.0.0
+- [x] Ports: well-known ports (80, 443, 22, 3000)
+- [x] DNS: domain name resolution
+- [x] Network commands: `ping`, `curl`, `netstat`, `lsof`
+- [x] `/etc/hosts` file để custom domains
 
 ### Thực Hành - Networking Commands
 
-- [ ] `ping google.com` để test connectivity
+- [x] `ping google.com` để test connectivity
 - [ ] `curl` API với different methods: GET, POST, PUT, DELETE
 - [ ] `curl -v` để see request/response headers
 - [ ] Check open ports: `netstat -an | grep LISTEN`
-- [ ] Find what's using a port: `lsof -i :8080`
+- [x] Find what's using a port: `lsof -i :8080`
 
 ### Thực Hành - Local Domain Setup
 
