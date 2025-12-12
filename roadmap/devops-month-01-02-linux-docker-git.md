@@ -131,11 +131,11 @@
 
 ### Thực Hành - Docker Desktop Setup
 
-- [ ] `brew install --cask docker`
-- [ ] Open Docker Desktop và complete setup
-- [ ] Verify: `docker --version`
+- [x] `brew install --cask docker`
+- [x] Open Docker Desktop và complete setup
+- [x] Verify: `docker --version`
 - [ ] Run hello world: `docker run hello-world`
-- [ ] Explore Docker Desktop dashboard
+- [x] Explore Docker Desktop dashboard
 
 ### Mini Project - Local Microservices
 
@@ -230,22 +230,22 @@
 
 ### Học - Docker Fundamentals
 
-- [ ] Docker architecture: daemon, CLI, images, containers
-- [ ] Images vs Containers
-- [ ] Docker registry: Docker Hub
-- [ ] Dockerfile instructions: FROM, COPY, RUN, CMD, EXPOSE
+- [x] Docker architecture: daemon, CLI, images, containers
+- [x] Images vs Containers
+- [x] Docker registry: Docker Hub
+- [x] Dockerfile instructions: FROM, COPY, RUN, CMD, EXPOSE
 - [ ] .dockerignore file
 - [ ] Multi-stage builds
 
 ### Thực Hành - Basic Docker Commands
 
-- [ ] `docker pull node:18-alpine`
-- [ ] `docker images` để list images
+- [x] `docker pull node:18-alpine`
+- [x] `docker images` để list images
 - [ ] `docker run -it node:18-alpine sh` (interactive mode)
-- [ ] `docker ps` để list running containers
-- [ ] `docker ps -a` để list all containers
-- [ ] `docker stop <container>`
-- [ ] `docker rm <container>`
+- [x] `docker ps` để list running containers
+- [x] `docker ps -a` để list all containers
+- [x] `docker stop <container>`
+- [x] `docker rm <container>`
 - [ ] `docker rmi <image>`
 
 ### Thực Hành - Dockerfile cho Node.js
