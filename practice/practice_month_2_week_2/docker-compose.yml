@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:6
+    networks:
+      - internal
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    
+  redis:
+    image: redis:alpine
+    networks:
+      - internal
+
+  api:
+    build: ./backend
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - external
+      - internal
+
+  client:
+    build: ./client
+    networks: 
+      - external
+
+  admin:
+    build: ./admin
+    networks:
+      - external
+      
+volumes:
+  mongo-data: 
+  redis-data:
+
+networks:
+  internal:
+  external:
+
+
+# How to use: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d

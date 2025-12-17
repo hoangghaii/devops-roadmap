@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  mongo:
+    # Không expose port ra ngoài host để tránh bị scan database
+    # Chỉ container api trong network internal mới thấy được mongo
+    restart: always
+    
+  redis:
+    restart: always
+
+  api:
+    # Ở Prod, ta dùng Image đã build sẵn trên Docker Hub hoặc Registry
+    image: my-registry.com/my-api:v1.0
+    restart: always
+    environment:
+      NODE_ENV: production
+      # MONGO_URL nên được lấy từ Secret hoặc Env thực tế của server
+      MONGO_URL: ${MONGO_URL_PROD}
+    # KHÔNG dùng volumes (bind mount) code. Code đã nằm trong Image.
+
+  client:
+    image: my-registry.com/my-client:v1.0
+    ports:
+      - "80:80" # Chạy trực tiếp trên cổng Web chuẩn
+    restart: always
+
+  admin:
+    image: my-registry.com/my-admin:v1.0
+    ports:
+      - "8080:80"
+    restart: always
+
+# How to use: docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d

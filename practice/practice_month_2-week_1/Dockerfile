@@ -1,15 +1,38 @@
-FROM node:20-alpine AS base
+# Set environment/argument variablesargument
+ARG NODE_VERSION=20
+
+# ---------------------------------------------------------------------
+# Base stage
+# ---------------------------------------------------------------------
+
+# Use Alpine base images
+FROM node:${NODE_VERSION}-slim AS base
+
+ENV NODE_ENV=production
 
 WORKDIR /app
 
 COPY package*.json ./
+
+# ---------------------------------------------------------------------
+# Multi-stage builds
+# ---------------------------------------------------------------------
+
+# ---------------------------------------------------------------------
+# Development stage
+# ---------------------------------------------------------------------
 
 FROM base AS development
 
 RUN npm install
 
 COPY . .
+
 RUN npm run dev
+
+# ---------------------------------------------------------------------
+# Builder stage
+# ---------------------------------------------------------------------
 
 FROM base AS builder
 
@@ -19,6 +42,9 @@ COPY . .
 
 RUN npm run build
 
+# ---------------------------------------------------------------------
+# Test stage
+# ---------------------------------------------------------------------
 
 FROM builder AS tester
 
@@ -28,12 +54,34 @@ RUN npm run lint
 
 RUN npm run coverage
 
-FROM base AS production
+# ---------------------------------------------------------------------
+# Production stage
+# ---------------------------------------------------------------------
 
-RUN npm ci --only=production
+FROM nginx:alpine
 
-COPY --from=builder /app/dist ./dist
+# [RUN] Loại bỏ file cấu hình mặc định của Nginx
+RUN rm -rf /etc/nginx/conf.d/default.conf
+
+# [COPY --from=builder] Sao chép các file tĩnh đã được build từ Giai đoạn 1
+# /app/build là thư mục mặc định của create-react-app.
+# /usr/share/nginx/html là thư mục mặc định của Nginx để phục vụ file tĩnh.
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# [COPY] Sao chép file cấu hình Nginx tùy chỉnh (nếu có)
+# Ví dụ: file nginx.conf để xử lý routing cho React (SPA)
+# COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
+# [ENV] Thiết lập cổng mặc định (Dùng cho thông tin, Nginx mặc định chạy 80)
+ENV PORT 80
+
+# Mở cổng 80
+EXPOSE 80
 
 RUN echo "console.log('Hello from my Docker image!')" > index.js
 
-CMD ["node", "index.js"]
+# [CMD] Đặt lệnh mặc định để chạy ứng dụng Nginx
+# Lệnh này sẽ khởi động Nginx ở chế độ foreground (tiền cảnh)
+CMD ["nginx", "-g", "daemon off;"]
+
+# docker run -d -p 3000:80 --name my-react-container my-react-app:latest

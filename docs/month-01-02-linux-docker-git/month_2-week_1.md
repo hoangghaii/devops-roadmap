@@ -2163,25 +2163,32 @@ build
 
 ```bash
 # Images
-docker images              # List images
-docker build -t name .     # Build image
-docker pull name           # Pull from registry
-docker push name           # Push to registry
-docker rmi name            # Remove image
+docker images                          # List images
+docker build -t name .                 # Build image
+docker pull name                       # Pull from registry
+docker push name                       # Push to registry
+docker rmi name                        # Remove image
 
 # Containers
-docker run name            # Run container
-docker ps                  # List running
-docker ps -a               # List all
-docker stop id             # Stop container
-docker rm id               # Remove container
-docker logs id             # View logs
-docker exec -it id bash    # Enter container
+docker run name                        # Run container
+docker ps                              # List running
+docker ps -a                           # List all
+docker stop id                         # Stop container
+docker rm id                           # Remove container
+docker logs id                         # View logs
+docker exec -it id bash                # Enter container
 
 # Cleanup
-docker system prune        # Remove unused objects
-docker volume prune        # Remove unused volumes
-docker image prune         # Remove unused images
+docker system prune                    # Remove unused objects
+docker volume prune                    # Remove unused volumes
+docker image prune                     # Remove unused images
+
+# Interactive mode
+docker run -it node:18-alpine sh       # Interactive mode
+# -i: Giữ luồng nhập (STDIN) của Container luôn mở, cho phép bạn gửi lệnh vào Container từ terminal của mình
+# -t: Phân bổ một terminal giả cho Container. Điều này cho phép bạn thấy giao diện dòng lệnh (command-line interface)
+# -it: Được dùng cùng nhau khi bạn muốn "nhảy vào" và tương tác trực tiếp với Container.
+# sh: Shell cơ bản (thường là Almquist shell) trên các bản phân phối Linux tối giản như Alpine.
 ```
 
 ---

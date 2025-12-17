@@ -234,23 +234,23 @@
 - [x] Images vs Containers
 - [x] Docker registry: Docker Hub
 - [x] Dockerfile instructions: FROM, COPY, RUN, CMD, EXPOSE
-- [ ] .dockerignore file
-- [ ] Multi-stage builds
+- [x] .dockerignore file
+- [x] Multi-stage builds
 
 ### Thực Hành - Basic Docker Commands
 
 - [x] `docker pull node:18-alpine`
 - [x] `docker images` để list images
-- [ ] `docker run -it node:18-alpine sh` (interactive mode)
+- [x] `docker run -it node:18-alpine sh` (interactive mode)
 - [x] `docker ps` để list running containers
 - [x] `docker ps -a` để list all containers
 - [x] `docker stop <container>`
 - [x] `docker rm <container>`
-- [ ] `docker rmi <image>`
+- [x] `docker rmi <image>`
 
 ### Thực Hành - Dockerfile cho Node.js
 
-- [ ] Create simple Dockerfile cho Express API
+- [x] Create simple Dockerfile cho Express API
 
   ```dockerfile
   FROM node:18-alpine
@@ -262,15 +262,15 @@
   CMD ["node", "server.js"]
   ```
 
-- [ ] Build image: `docker build -t my-api:v1 .`
-- [ ] Run container: `docker run -p 3000:3000 my-api:v1`
-- [ ] Test API trong browser/Postman
-- [ ] View logs: `docker logs <container>`
-- [ ] Exec into container: `docker exec -it <container> sh`
+- [x] Build image: `docker build -t my-api:v1 .`
+- [x] Run container: `docker run -p 3000:3000 my-api:v1`
+- [x] Test API trong browser/Postman
+- [x] View logs: `docker logs <container>`
+- [x] Exec into container: `docker exec -it <container> sh`
 
 ### Thực Hành - Optimize Dockerfile
 
-- [ ] Create multi-stage build để reduce image size
+- [x] Create multi-stage build để reduce image size
 
   ```dockerfile
   # Stage 1: Builder
@@ -288,9 +288,9 @@
   CMD ["node", "server.js"]
   ```
 
-- [ ] Compare image sizes: before vs after optimization
-- [ ] Use .dockerignore để exclude node_modules, .git
-- [ ] Tag images properly: `my-api:latest`, `my-api:v1.0.0`
+- [x] Compare image sizes: before vs after optimization
+- [x] Use .dockerignore để exclude node_modules, .git
+- [x] Tag images properly: `my-api:latest`, `my-api:v1.0.0`
 
 ### Thực Hành - Docker Volumes
 
