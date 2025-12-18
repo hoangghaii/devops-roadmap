@@ -33,7 +33,7 @@
 - [x] Navigation commands: `cd`, `ls`, `pwd`, `mkdir`, `rm`, `cp`, `mv`
 - [x] File operations: `touch`, `cat`, `less`, `head`, `tail`, `open`
 - [x] Permissions: `chmod`, `chown`, hiểu rwx (read/write/execute)
-- [ ] macOS specific: `pbcopy`, `pbpaste` (clipboard operations)
+- [x] macOS specific: `pbcopy`, `pbpaste` (clipboard operations)
 - [x] Man pages: `man <command>` để đọc documentation
 
 ### Thực Hành
@@ -79,6 +79,15 @@
 - [x] `brew install bat` (better cat)
 - [x] `brew install ripgrep` (better grep)
 - [x] `brew install fzf` (fuzzy finder)
+- [x] `brew install git`
+- [x] `brew install node`
+- [x] `brew install wget curl`
+- [x] `brew install tree` (visualize directories)
+- [x] `brew install htop` (better process viewer)
+- [x] `brew install jq` (JSON parser)
+- [x] `brew install bat` (better cat)
+- [x] `brew install ripgrep` (better grep)
+- [x] `brew install fzf` (fuzzy finder)
 
 ### Thực Hành - GUI Apps
 
@@ -86,10 +95,14 @@
 - [x] `brew install --cask docker`
 - [x] `brew install --cask postman`
 - [x] `brew install --cask rectangle` (window management)
+- [x] `brew install --cask visual-studio-code`
+- [x] `brew install --cask docker`
+- [x] `brew install --cask postman`
+- [x] `brew install --cask rectangle` (window management)
 
 ### Thực Hành - Process Management
 
-- [ ] Chạy Node.js app và monitor với `htop`
+- [x] Chạy Node.js app và monitor với `htop`
 - [ ] Find process by port: `lsof -i :3000`
 - [ ] Kill process holding port: `kill -9 $(lsof -ti:3000)`
 - [ ] Run multiple Node.js instances trên different ports
@@ -97,10 +110,10 @@
 
 ### Mini Project
 
-- [ ] Setup Node.js app với multiple instances
-- [ ] Monitor CPU/memory usage của từng instance
+- [x] Setup Node.js app với multiple instances
+- [x] Monitor CPU/memory usage của từng instance
 - [ ] Script để start/stop/restart processes
-- [ ] Kill all Node processes với một command
+- [x] Kill all Node processes với một command
 
 ---
 
@@ -108,19 +121,19 @@
 
 ### Học
 
-- [ ] IP addresses: localhost, 127.0.0.1, 0.0.0.0
-- [ ] Ports: well-known ports (80, 443, 22, 3000)
-- [ ] DNS: domain name resolution
-- [ ] Network commands: `ping`, `curl`, `netstat`, `lsof`
-- [ ] `/etc/hosts` file để custom domains
+- [x] IP addresses: localhost, 127.0.0.1, 0.0.0.0
+- [x] Ports: well-known ports (80, 443, 22, 3000)
+- [x] DNS: domain name resolution
+- [x] Network commands: `ping`, `curl`, `netstat`, `lsof`
+- [x] `/etc/hosts` file để custom domains
 
 ### Thực Hành - Networking Commands
 
-- [ ] `ping google.com` để test connectivity
+- [x] `ping google.com` để test connectivity
 - [ ] `curl` API với different methods: GET, POST, PUT, DELETE
 - [ ] `curl -v` để see request/response headers
 - [ ] Check open ports: `netstat -an | grep LISTEN`
-- [ ] Find what's using a port: `lsof -i :8080`
+- [x] Find what's using a port: `lsof -i :8080`
 
 ### Thực Hành - Local Domain Setup
 
@@ -131,11 +144,11 @@
 
 ### Thực Hành - Docker Desktop Setup
 
-- [ ] `brew install --cask docker`
-- [ ] Open Docker Desktop và complete setup
-- [ ] Verify: `docker --version`
+- [x] `brew install --cask docker`
+- [x] Open Docker Desktop và complete setup
+- [x] Verify: `docker --version`
 - [ ] Run hello world: `docker run hello-world`
-- [ ] Explore Docker Desktop dashboard
+- [x] Explore Docker Desktop dashboard
 
 ### Mini Project - Local Microservices
 
@@ -230,27 +243,27 @@
 
 ### Học - Docker Fundamentals
 
-- [ ] Docker architecture: daemon, CLI, images, containers
-- [ ] Images vs Containers
-- [ ] Docker registry: Docker Hub
-- [ ] Dockerfile instructions: FROM, COPY, RUN, CMD, EXPOSE
-- [ ] .dockerignore file
-- [ ] Multi-stage builds
+- [x] Docker architecture: daemon, CLI, images, containers
+- [x] Images vs Containers
+- [x] Docker registry: Docker Hub
+- [x] Dockerfile instructions: FROM, COPY, RUN, CMD, EXPOSE
+- [x] .dockerignore file
+- [x] Multi-stage builds
 
 ### Thực Hành - Basic Docker Commands
 
-- [ ] `docker pull node:18-alpine`
-- [ ] `docker images` để list images
-- [ ] `docker run -it node:18-alpine sh` (interactive mode)
-- [ ] `docker ps` để list running containers
-- [ ] `docker ps -a` để list all containers
-- [ ] `docker stop <container>`
-- [ ] `docker rm <container>`
-- [ ] `docker rmi <image>`
+- [x] `docker pull node:18-alpine`
+- [x] `docker images` để list images
+- [x] `docker run -it node:18-alpine sh` (interactive mode)
+- [x] `docker ps` để list running containers
+- [x] `docker ps -a` để list all containers
+- [x] `docker stop <container>`
+- [x] `docker rm <container>`
+- [x] `docker rmi <image>`
 
 ### Thực Hành - Dockerfile cho Node.js
 
-- [ ] Create simple Dockerfile cho Express API
+- [x] Create simple Dockerfile cho Express API
 
   ```dockerfile
   FROM node:18-alpine
@@ -262,15 +275,15 @@
   CMD ["node", "server.js"]
   ```
 
-- [ ] Build image: `docker build -t my-api:v1 .`
-- [ ] Run container: `docker run -p 3000:3000 my-api:v1`
-- [ ] Test API trong browser/Postman
-- [ ] View logs: `docker logs <container>`
-- [ ] Exec into container: `docker exec -it <container> sh`
+- [x] Build image: `docker build -t my-api:v1 .`
+- [x] Run container: `docker run -p 3000:3000 my-api:v1`
+- [x] Test API trong browser/Postman
+- [x] View logs: `docker logs <container>`
+- [x] Exec into container: `docker exec -it <container> sh`
 
 ### Thực Hành - Optimize Dockerfile
 
-- [ ] Create multi-stage build để reduce image size
+- [x] Create multi-stage build để reduce image size
 
   ```dockerfile
   # Stage 1: Builder
@@ -288,9 +301,9 @@
   CMD ["node", "server.js"]
   ```
 
-- [ ] Compare image sizes: before vs after optimization
-- [ ] Use .dockerignore để exclude node_modules, .git
-- [ ] Tag images properly: `my-api:latest`, `my-api:v1.0.0`
+- [x] Compare image sizes: before vs after optimization
+- [x] Use .dockerignore để exclude node_modules, .git
+- [x] Tag images properly: `my-api:latest`, `my-api:v1.0.0`
 
 ### Thực Hành - Docker Volumes
 
