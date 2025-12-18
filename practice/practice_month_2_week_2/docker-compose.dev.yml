@@ -1,19 +1,22 @@
 version: '3.8'
 
 services:
-  mongo:
+  database:
+    restart: unless-stopped          # Restart policy
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db   
+      - database-data:/data/db   
     
   redis:
+    restart: unless-stopped          # Restart policy
     ports:
       - "6379:6379"
     volumes:
       - redis-data:/data
 
   api:
+    restart: unless-stopped          # Restart policy
     ports:
       - "3000:3000"
     volumes:
@@ -21,9 +24,12 @@ services:
       - /app/node_modules
     environment:
       NODE_ENV: development
-      MONGO_URL: mongodb://admin:password@mongo:27017
+      MONGO_URL: mongodb://admin:password@database:27017
+    env_file:
+      - .env.development
 
   client:
+    restart: unless-stopped          # Restart policy
     ports:
       - "3001:3000"
     volumes:
@@ -31,8 +37,11 @@ services:
       - /app/node_modules
     environment:
       NODE_ENV: development
+    env_file:
+      - .env.development
 
   admin:
+    restart: unless-stopped          # Restart policy
     ports:
       - "3002:3000"
     volumes:
@@ -40,5 +49,7 @@ services:
       - /app/node_modules
     enviroment:
       NODE_ENV: development
+    env_file:
+      - .env.development 
 
 # How to use: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d

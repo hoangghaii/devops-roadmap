@@ -1,8 +1,10 @@
 version: '3.8'
 
 services:
-  mongo:
-    image: mongo:6
+  database:
+    image: mongo:8.2
+    container_name: myapp-db         # Custom tên container
+    hostname: database-host          # Hostname trong network
     networks:
       - internal
     environment:
@@ -16,35 +18,57 @@ services:
     
   redis:
     image: redis:alpine
+    container_name: myapp-redis      # Custom tên container
+    hostname: redis-host             # Hostname trong network
     networks:
       - internal
 
   api:
     build: ./backend
+    container_name: myapp-api        # Custom tên container
+    hostname: api-host               # Hostname trong network
     depends_on:
-      mongo:
+      database:
         condition: service_healthy
     networks:
       - external
       - internal
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   client:
     build: ./client
+    container_name: myapp-client      # Custom tên container
+    hostname: client-host             # Hostname trong network
     networks: 
       - external
+    depends_on:
+      api:
+        condition:  service_healthy
 
   admin:
     build: ./admin
+    container_name: myapp-admin        # Custom tên container
+    hostname: admin-host               # Hostname trong network
     networks:
       - external
+    depends_on:
+      api:
+        condition:  service_healthy
       
 volumes:
-  mongo-data: 
+  database-data:
   redis-data:
 
 networks:
   internal:
+    driver: bridge
+    internal: true
   external:
-
+    name: external-network
+    external: true
 
 # How to use: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d

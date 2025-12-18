@@ -8,8 +8,6 @@ ARG NODE_VERSION=20
 # Use Alpine base images
 FROM node:${NODE_VERSION}-slim AS base
 
-ENV NODE_ENV=production
-
 WORKDIR /app
 
 COPY package*.json ./
@@ -83,5 +81,28 @@ RUN echo "console.log('Hello from my Docker image!')" > index.js
 # [CMD] Đặt lệnh mặc định để chạy ứng dụng Nginx
 # Lệnh này sẽ khởi động Nginx ở chế độ foreground (tiền cảnh)
 CMD ["nginx", "-g", "daemon off;"]
+
+
+# ---------------------------------------------------------------------
+# Production stage
+# ---------------------------------------------------------------------
+
+FROM node:${NODE_VERSION}-alpine
+
+ENV NODE_ENV=production
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm ci --only=production
+
+COPY --from=builder /app/build .
+
+USER node
+
+EXPOSE 3000
+
+CMD ["node", "src/server.js"]
 
 # docker run -d -p 3000:80 --name my-react-container my-react-app:latest
