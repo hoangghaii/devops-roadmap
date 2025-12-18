@@ -63,29 +63,29 @@
 
 ### Học
 
-- [ ] Homebrew commands: `brew install`, `brew update`, `brew upgrade`, `brew list`
-- [ ] Homebrew Cask cho GUI apps
-- [ ] Process management: `ps`, `top`, `htop`, `kill`, `killall`
-- [ ] Node version management: nvm hoặc fnm
+- [x] Homebrew commands: `brew install`, `brew update`, `brew upgrade`, `brew list`
+- [x] Homebrew Cask cho GUI apps
+- [x] Process management: `ps`, `top`, `htop`, `kill`, `killall`
+- [x] Node version management: nvm hoặc fnm
 
 ### Thực Hành - Cài Đặt Essential Tools
 
-- [ ] `brew install git`
-- [ ] `brew install node`
-- [ ] `brew install wget curl`
-- [ ] `brew install tree` (visualize directories)
-- [ ] `brew install htop` (better process viewer)
-- [ ] `brew install jq` (JSON parser)
-- [ ] `brew install bat` (better cat)
-- [ ] `brew install ripgrep` (better grep)
-- [ ] `brew install fzf` (fuzzy finder)
+- [x] `brew install git`
+- [x] `brew install node`
+- [x] `brew install wget curl`
+- [x] `brew install tree` (visualize directories)
+- [x] `brew install htop` (better process viewer)
+- [x] `brew install jq` (JSON parser)
+- [x] `brew install bat` (better cat)
+- [x] `brew install ripgrep` (better grep)
+- [x] `brew install fzf` (fuzzy finder)
 
 ### Thực Hành - GUI Apps
 
-- [ ] `brew install --cask visual-studio-code`
-- [ ] `brew install --cask docker`
-- [ ] `brew install --cask postman`
-- [ ] `brew install --cask rectangle` (window management)
+- [x] `brew install --cask visual-studio-code`
+- [x] `brew install --cask docker`
+- [x] `brew install --cask postman`
+- [x] `brew install --cask rectangle` (window management)
 
 ### Thực Hành - Process Management
 
