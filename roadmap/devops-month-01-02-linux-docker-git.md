@@ -328,15 +328,15 @@
 
 ### Học - Docker Compose Fundamentals
 
-- [ ] docker-compose.yml syntax
-- [ ] Services, networks, volumes
-- [ ] Environment variables
-- [ ] Depends_on, healthchecks
-- [ ] Override files: docker-compose.override.yml
+- [x] docker-compose.yml syntax
+- [x] Services, networks, volumes
+- [x] Environment variables
+- [x] Depends_on, healthchecks
+- [x] Override files: docker-compose.override.yml
 
 ### Thực Hành - Basic Compose File
 
-- [ ] Create docker-compose.yml cho Node.js + MongoDB
+- [x] Create docker-compose.yml cho Node.js + MongoDB
 
   ```yaml
   version: '3.8'

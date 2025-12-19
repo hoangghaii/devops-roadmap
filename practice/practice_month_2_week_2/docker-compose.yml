@@ -1,6 +1,9 @@
 version: '3.8'
 
 services:
+  # ---------------------------------------------------------------------
+  # Database Service
+  # ---------------------------------------------------------------------
   database:
     image: mongo:8.2
     container_name: myapp-db         # Custom tên container
@@ -15,20 +18,40 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+      start_period: 40s
+    volumes:
+      - database-data:/data/db
     
+  # ---------------------------------------------------------------------
+  # Redis Service
+  # ---------------------------------------------------------------------
   redis:
     image: redis:alpine
     container_name: myapp-redis      # Custom tên container
     hostname: redis-host             # Hostname trong network
     networks:
       - internal
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    volumes:
+      - redis-data:/data 
 
+  # ---------------------------------------------------------------------
+  # API Service
+  # ---------------------------------------------------------------------
   api:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: myapp-api        # Custom tên container
     hostname: api-host               # Hostname trong network
     depends_on:
       database:
+        condition: service_healthy
+      redis:
         condition: service_healthy
     networks:
       - external
@@ -38,9 +61,15 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+      start_period: 30s
 
+  # ---------------------------------------------------------------------
+  # Client Service
+  # ---------------------------------------------------------------------
   client:
-    build: ./client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
     container_name: myapp-client      # Custom tên container
     hostname: client-host             # Hostname trong network
     networks: 
@@ -49,8 +78,13 @@ services:
       api:
         condition:  service_healthy
 
+  # ---------------------------------------------------------------------
+  # Admin Service
+  # ---------------------------------------------------------------------
   admin:
-    build: ./admin
+    build:
+      context: ./admin
+      dockerfile: Dockerfile
     container_name: myapp-admin        # Custom tên container
     hostname: admin-host               # Hostname trong network
     networks:
@@ -58,17 +92,25 @@ services:
     depends_on:
       api:
         condition:  service_healthy
-      
+
+# ---------------------------------------------------------------------
+# Volumes (Shared)
+# ---------------------------------------------------------------------   
 volumes:
   database-data:
+    driver: local
   redis-data:
+    driver: local
 
+# ---------------------------------------------------------------------
+# Networks (Shared)
+# ---------------------------------------------------------------------
 networks:
   internal:
     driver: bridge
     internal: true
   external:
-    name: external-network
-    external: true
+    driver: bridge
+    name: myapp-external
 
 # How to use: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
