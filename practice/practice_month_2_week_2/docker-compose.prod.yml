@@ -6,13 +6,16 @@ services:
   # ---------------------------------------------------------------------
   database:
     restart: always
+
     environment:
       MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}  # From .env
+
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "3"
+
     deploy:
       resources:
         limits:             # Maximum allowed
@@ -27,11 +30,13 @@ services:
   # ---------------------------------------------------------------------    
   redis:
     restart: always
+
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "3"
+
     deploy:
       resources:
         limits:
@@ -51,42 +56,31 @@ services:
       target: production
       args:
         NODE_VERSIONL: '20'
+
     image: myapp-api:${VERSION:-latest}    # Production image tag
+
     restart: always
+
     environment:
       NODE_ENV: production
       PORT: 3000
       MONGO_URL: mongodb://admin:${DB_PASSWORD}@database:27017/myapp?authSource=admin
       REDIS_URL: redis://redis:6379
+
     env_file:
       - ./backend/.env.production
+
     deploy:
       replicas: 3  # Scale to 3 instances
+
       resources:
         limits:
-      
-      
-      
-      
-      
-      
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-           cpus: '0.5'
+          cpus: '0.5'
           memory: 512M
         reservations:
           cpus: '0.25'
           memory: 256M
+
       restart_policy:
         condition: on-failure
         delay: 5s
@@ -115,8 +109,7 @@ services:
 
     restart: always
 
-
-     # Expose to reverse proxy only
+    # Expose to reverse proxy only
     ports:
       - "3001:80"  # Nginx serves on port 80
 

@@ -24,20 +24,26 @@ services:
     build:
       context: ./backend
       target: development
+
     restart: unless-stopped          # Restart policy
+
     ports:
       - "3000:3000"
       - "9229:9229"                  # Debug port
+
     volumes:
       - ./backend:/app
       - /app/node_modules
+
     environment:
       NODE_ENV: development
       DEBUG: "api:*"
       MONGO_URL: mongodb://admin:password@database:27017
       REDIS_URL: redis://redis:6379
+
     env_file:
       - ./backend/.env.development
+
     command: npm run dev:watch
 
   # ---------------------------------------------------------------------
@@ -47,9 +53,12 @@ services:
     build:
       context: ./client
       target: development
+
     restart: unless-stopped          # Restart policy
+
     ports:
       - "3001:3000"
+
     volumes:
       - ./client:/app
       - /app/node_modules
@@ -57,9 +66,12 @@ services:
       NODE_ENV: development
       REACT_APP_API_URL: http://localhost:3000  # API URL
       CHOKIDAR_USEPOLLING: "true"  # For hot reload in Docker
+
     env_file:
       - ./client/.env.development  # Add path
+
     stdin_open: true  # Keep container alive
+
     tty: true         # Interactive terminal
 
 
@@ -70,19 +82,26 @@ services:
     build:
       context: ./admin
       target: development
+
     restart: unless-stopped          # Restart policy
+
     ports:
       - "3002:3000"
+
     volumes:
       - ./admin:/app
       - /app/node_modules
+
     environment:
       NODE_ENV: development
       REACT_APP_API_URL: http://localhost:3000  # API URL
       CHOKIDAR_USEPOLLING: "true"  # For hot reload in Docker
+
     env_file:
       - ./admin/.env.development  # Add path
+
     stdin_open: true  # Keep React running
+    
     tty: true
 
 # How to use: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
