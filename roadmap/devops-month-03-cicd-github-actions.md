@@ -9,12 +9,12 @@
 ## Mục Tiêu Tháng 3
 
 Sau tháng này, bạn sẽ:
-- [ ] Hiểu khái niệm CI/CD và tầm quan trọng
-- [ ] Viết được GitHub Actions workflows
-- [ ] Tự động hóa testing, building, deployment
-- [ ] Setup automated Docker image builds
-- [ ] Deploy tự động lên server khi push code
-- [ ] Implement security scanning trong pipeline
+- [x] Hiểu khái niệm CI/CD và tầm quan trọng
+- [x] Viết được GitHub Actions workflows
+- [x] Tự động hóa testing, building, deployment
+- [x] Setup automated Docker image builds
+- [x] Deploy tự động lên server khi push code
+- [x] Implement security scanning trong pipeline
 
 ---
 
@@ -23,30 +23,30 @@ Sau tháng này, bạn sẽ:
 ## Học - CI/CD Concepts
 
 ### Theory
-- [ ] Continuous Integration (CI) là gì?
-- [ ] Continuous Deployment (CD) vs Continuous Delivery
-- [ ] Benefits của CI/CD:
+- [x] Continuous Integration (CI) là gì?
+- [x] Continuous Deployment (CD) vs Continuous Delivery
+- [x] Benefits của CI/CD:
   - Faster feedback
   - Early bug detection
   - Automated testing
   - Consistent deployments
-- [ ] CI/CD pipeline stages:
+- [x] CI/CD pipeline stages:
   - Source → Build → Test → Deploy
-- [ ] Popular CI/CD tools: Jenkins, GitLab CI, CircleCI, GitHub Actions
+- [x] Popular CI/CD tools: Jenkins, GitLab CI, CircleCI, GitHub Actions
 
 ### GitHub Actions Architecture
-- [ ] Workflows: automated processes
-- [ ] Jobs: group of steps
-- [ ] Steps: individual tasks
-- [ ] Runners: servers executing jobs
-- [ ] Actions: reusable units
-- [ ] Triggers: events starting workflows
+- [x] Workflows: automated processes
+- [x] Jobs: group of steps
+- [x] Steps: individual tasks
+- [x] Runners: servers executing jobs
+- [x] Actions: reusable units
+- [x] Triggers: events starting workflows
 
 ## Thực Hành - First GitHub Actions Workflow
 
 ### Setup Repository
-- [ ] Create new repository: `nodejs-cicd-demo`
-- [ ] Create simple Express API:
+- [x] Create new repository: `nodejs-cicd-demo`
+- [x] Create simple Express API:
   ```javascript
   // server.js
   const express = require('express');
@@ -63,7 +63,7 @@ Sau tháng này, bạn sẽ:
   module.exports = app;
   ```
 
-- [ ] Add tests với Jest:
+- [x] Add tests với Jest:
   ```javascript
   // server.test.js
   const request = require('supertest');
@@ -79,7 +79,7 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Create First Workflow
-- [ ] Create `.github/workflows/ci.yml`:
+- [x] Create `.github/workflows/ci.yml`:
   ```yaml
   name: CI Pipeline
   
@@ -113,16 +113,16 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Test Workflow
-- [ ] Push code lên GitHub
-- [ ] Navigate to Actions tab
-- [ ] Verify workflow chạy tự động
-- [ ] Check logs từng step
-- [ ] Fix errors nếu có
+- [x] Push code lên GitHub
+- [x] Navigate to Actions tab
+- [x] Verify workflow chạy tự động
+- [x] Check logs từng step
+- [x] Fix errors nếu có
 
 ## Thực Hành - Advanced Triggers
 
 ### Different Trigger Types
-- [ ] Push to specific branches:
+- [x] Push to specific branches:
   ```yaml
   on:
     push:
@@ -131,7 +131,7 @@ Sau tháng này, bạn sẽ:
         - 'release/**'
   ```
 
-- [ ] Pull request events:
+- [x] Pull request events:
   ```yaml
   on:
     pull_request:
@@ -145,7 +145,7 @@ Sau tháng này, bạn sẽ:
       - cron: '0 2 * * *'  # Daily at 2 AM
   ```
 
-- [ ] Manual trigger:
+- [x] Manual trigger:
   ```yaml
   on:
     workflow_dispatch:
@@ -170,8 +170,8 @@ Sau tháng này, bạn sẽ:
   ```
 
 ## Mini Project Week 1
-- [ ] Create Node.js API với tests
-- [ ] Setup ESLint và Prettier
+- [x] Create Node.js API với tests
+- [x] Setup ESLint và Prettier
 - [ ] GitHub Actions workflow:
   - Run on push to main/develop
   - Run on pull requests
@@ -179,8 +179,8 @@ Sau tháng này, bạn sẽ:
   - Run linter
   - Run tests
   - Report results
-- [ ] Add status badge to README
-- [ ] Test với pull request workflow
+- [x] Add status badge to README
+- [x] Test với pull request workflow
 
 ---
 
@@ -189,22 +189,22 @@ Sau tháng này, bạn sẽ:
 ## Học - Build Processes
 
 ### Build Strategies
-- [ ] Development vs Production builds
-- [ ] Build artifacts: compiled code, bundled assets
-- [ ] Caching dependencies để faster builds
-- [ ] Multi-stage Docker builds review
-- [ ] Docker layer caching
+- [x] Development vs Production builds
+- [x] Build artifacts: compiled code, bundled assets
+- [x] Caching dependencies để faster builds
+- [x] Multi-stage Docker builds review
+- [x] Docker layer caching
 
 ### Docker Registry Options
-- [ ] Docker Hub (free public, limited private)
-- [ ] GitHub Container Registry (ghcr.io)
+- [x] Docker Hub (free public, limited private)
+- [x] GitHub Container Registry (ghcr.io)
 - [ ] AWS ECR
 - [ ] Private registries
 
 ## Thực Hành - Docker Build trong CI
 
 ### Setup Docker Build Workflow
-- [ ] Create `.github/workflows/docker-build.yml`:
+- [x] Create `.github/workflows/docker-build.yml`:
   ```yaml
   name: Docker Build & Push
   
@@ -276,7 +276,7 @@ Sau tháng này, bạn sẽ:
 ## Thực Hành - Optimized Builds
 
 ### Multi-Stage Dockerfile
-- [ ] Review và optimize Dockerfile:
+- [x] Review và optimize Dockerfile:
   ```dockerfile
   # Build stage
   FROM node:18-alpine AS builder
@@ -364,13 +364,13 @@ Sau tháng này, bạn sẽ:
 ## Học - Testing in CI/CD
 
 ### Testing Pyramid
-- [ ] Unit tests: individual functions
-- [ ] Integration tests: component interactions
-- [ ] E2E tests: full user workflows
-- [ ] When to run each type
+- [x] Unit tests: individual functions
+- [x] Integration tests: component interactions
+- [x] E2E tests: full user workflows
+- [x] When to run each type
 
 ### Code Quality Tools
-- [ ] Linters: ESLint, Prettier
+- [x] Linters: ESLint, Prettier
 - [ ] Security scanners: npm audit, Snyk
 - [ ] Code coverage: Jest, Istanbul
 - [ ] Static analysis: SonarQube
@@ -391,7 +391,7 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Code Quality Checks
-- [ ] Add linting job:
+- [x] Add linting job:
   ```yaml
   lint:
     runs-on: ubuntu-latest
@@ -466,7 +466,7 @@ Sau tháng này, bạn sẽ:
 - [ ] Test by creating PR with failing tests
 
 ### Code Review Automation
-- [ ] Add automatic PR comments:
+- [x] Add automatic PR comments:
   ```yaml
   - name: Comment test results
     uses: actions/github-script@v6
@@ -502,10 +502,10 @@ Sau tháng này, bạn sẽ:
 ## Học - Deployment Strategies
 
 ### Deployment Types
-- [ ] Rolling deployment: gradual update
-- [ ] Blue-Green deployment: parallel environments
-- [ ] Canary deployment: partial rollout
-- [ ] Recreate: stop old, start new
+- [x] Rolling deployment: gradual update
+- [x] Blue-Green deployment: parallel environments
+- [x] Canary deployment: partial rollout
+- [x] Recreate: stop old, start new
 
 ### Environment Management
 - [ ] Development
