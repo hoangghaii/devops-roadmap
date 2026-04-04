@@ -20,9 +20,9 @@
 
 ### Resources
 
-- Homebrew: <https://brew.sh>
-- iTerm2: <https://iterm2.com>
-- Oh My Zsh: <https://ohmyz.sh>
+- Homebrew: https://brew.sh
+- iTerm2: https://iterm2.com
+- Oh My Zsh: https://ohmyz.sh
 
 ---
 
@@ -40,10 +40,9 @@
 
 - [x] Tạo folder structure cho projects qua terminal
 - [x] Copy/move/rename files without Finder
-- [ ] Change file permissions: `chmod 755 script.sh`
+- [x] Change file permissions: `chmod 755 script.sh`
 - [x] Pipe output to clipboard: `cat file.txt | pbcopy`
 - [x] Create useful aliases trong ~/.zshrc:
-
   ```bash
   alias ll="ls -lah"
   alias gs="git status"
@@ -54,7 +53,7 @@
 ### Mini Challenge
 
 - [x] Navigate entire project structure chỉ bằng command line
-- [ ] Tạo script đơn giản để organize Downloads folder
+- [x] Tạo script đơn giản để organize Downloads folder
 - [x] Find all .js files trong project: `find . -name "*.js"`
 
 ---
@@ -79,22 +78,9 @@
 - [x] `brew install bat` (better cat)
 - [x] `brew install ripgrep` (better grep)
 - [x] `brew install fzf` (fuzzy finder)
-- [x] `brew install git`
-- [x] `brew install node`
-- [x] `brew install wget curl`
-- [x] `brew install tree` (visualize directories)
-- [x] `brew install htop` (better process viewer)
-- [x] `brew install jq` (JSON parser)
-- [x] `brew install bat` (better cat)
-- [x] `brew install ripgrep` (better grep)
-- [x] `brew install fzf` (fuzzy finder)
 
 ### Thực Hành - GUI Apps
 
-- [x] `brew install --cask visual-studio-code`
-- [x] `brew install --cask docker`
-- [x] `brew install --cask postman`
-- [x] `brew install --cask rectangle` (window management)
 - [x] `brew install --cask visual-studio-code`
 - [x] `brew install --cask docker`
 - [x] `brew install --cask postman`
@@ -106,7 +92,7 @@
 - [x] Find process by port: `lsof -i :3000`
 - [x] Kill process holding port: `kill -9 $(lsof -ti:3000)`
 - [x] Run multiple Node.js instances trên different ports
-- [x] Parse JSON from API: `curl api.example.com | jq`
+- [ ] Parse JSON from API: `curl api.example.com | jq`
 
 ### Mini Project
 
@@ -209,7 +195,6 @@
   ```
 
 - [x] **git-sync.sh**: Pull latest from all repos
-
   ```bash
   #!/bin/zsh
   for dir in ~/Projects/*/; do
@@ -271,7 +256,7 @@
   COPY package*.json ./
   RUN npm ci --only=production
   COPY . .
-  EXPOSE 3000nd
+  EXPOSE 3000
   CMD ["node", "server.js"]
   ```
 
@@ -314,13 +299,13 @@
 
 ### Mini Project - Containerize Full App
 
-- [ ] Dockerfile cho Express API
-- [ ] Dockerfile cho React frontend
-- [ ] Build both images
-- [ ] Run containers manually
-- [ ] Connect frontend to API container
-- [ ] Mount source code for hot reload
-- [ ] Push images to Docker Hub
+- [x] Dockerfile cho Express API
+- [x] Dockerfile cho React frontend
+- [x] Build both images
+- [x] Run containers manually
+- [x] Connect frontend to API container
+- [x] Mount source code for hot reload
+- [x] Push images to Docker Hub
 
 ---
 
@@ -370,42 +355,42 @@
 
 ### Thực Hành - Docker Compose Commands
 
-- [ ] `docker-compose up -d` (start all services)
-- [ ] `docker-compose ps` (list running services)
-- [ ] `docker-compose logs -f api` (follow API logs)
-- [ ] `docker-compose exec api sh` (exec into container)
-- [ ] `docker-compose restart api` (restart service)
-- [ ] `docker-compose down` (stop & remove containers)
-- [ ] `docker-compose down -v` (also remove volumes)
+- [x] `docker-compose up -d` (start all services)
+- [x] `docker-compose ps` (list running services)
+- [x] `docker-compose logs -f api` (follow API logs)
+- [x] `docker-compose exec api sh` (exec into container)
+- [x] `docker-compose restart api` (restart service)
+- [x] `docker-compose down` (stop & remove containers)
+- [x] `docker-compose down -v` (also remove volumes)
 
 ### Thực Hành - Multi-Service Setup
 
-- [ ] Add frontend service to docker-compose.yml
-- [ ] Add Redis service for caching
-- [ ] Configure networks để isolate services
-- [ ] Setup healthchecks for services
-- [ ] Use environment files: .env.development
+- [x] Add frontend service to docker-compose.yml
+- [x] Add Redis service for caching
+- [x] Configure networks để isolate services
+- [x] Setup healthchecks for services
+- [x] Use environment files: .env.development
 
 ### Thực Hành - Development vs Production
 
-- [ ] Create docker-compose.yml (base)
-- [ ] Create docker-compose.dev.yml (development overrides)
-- [ ] Create docker-compose.prod.yml (production overrides)
-- [ ] Start dev: `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up`
-- [ ] Different configs: hot reload vs optimized builds
+- [x] Create docker-compose.yml (base)
+- [x] Create docker-compose.dev.yml (development overrides)
+- [x] Create docker-compose.prod.yml (production overrides)
+- [x] Start dev: `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up`
+- [x] Different configs: hot reload vs optimized builds
 
 ### Mini Project - Full MERN Stack
 
-- [ ] MongoDB service
-- [ ] Express API service (with hot reload)
-- [ ] React frontend service (with hot reload)
-- [ ] Nginx service (reverse proxy)
-- [ ] Redis service (caching/sessions)
-- [ ] All start với: `docker-compose up`
-- [ ] Healthchecks cho all services
-- [ ] Proper dependency order
-- [ ] Volume mounts for development
-- [ ] Environment variables management
+- [x] MongoDB service
+- [x] Express API service (with hot reload)
+- [x] React frontend service (with hot reload)
+- [x] Nginx service (reverse proxy)
+- [x] Redis service (caching/sessions)
+- [x] All start với: `docker-compose up`
+- [x] Healthchecks cho all services
+- [x] Proper dependency order
+- [x] Volume mounts for development
+- [x] Environment variables management
 
 ---
 
@@ -413,19 +398,19 @@
 
 ### Học - Branching Strategies
 
-- [ ] Git Flow model: main, develop, feature, release, hotfix
-- [ ] GitHub Flow: simple main + feature branches
-- [ ] Trunk-based development
-- [ ] When to use which strategy
+- [x] Git Flow model: main, develop, feature, release, hotfix
+- [x] GitHub Flow: simple main + feature branches
+- [x] Trunk-based development
+- [x] When to use which strategy
 
 ### Học - Advanced Git Commands
 
-- [ ] Interactive rebase: `git rebase -i HEAD~3`
-- [ ] Cherry-pick: `git cherry-pick <commit-hash>`
-- [ ] Stash: `git stash save "message"`
-- [ ] Reflog: `git reflog` để recover lost commits
-- [ ] Reset vs Revert: `git reset`, `git revert`
-- [ ] Amend commit: `git commit --amend`
+- [x] Interactive rebase: `git rebase -i HEAD~3`
+- [x] Cherry-pick: `git cherry-pick <commit-hash>`
+- [x] Stash: `git stash save "message"`
+- [x] Reflog: `git reflog` để recover lost commits
+- [x] Reset vs Revert: `git reset`, `git revert`
+- [x] Amend commit: `git commit --amend`
 
 ### Thực Hành - Branching
 
@@ -524,7 +509,6 @@
 - [ ] SSH into instance: `ssh -i ~/.ssh/my-key.pem ubuntu@<ec2-ip>`
 - [ ] Update system: `sudo apt update && sudo apt upgrade -y`
 - [ ] Create SSH config for easy access:
-
   ```
   # ~/.ssh/config
   Host my-server
@@ -532,19 +516,16 @@
     User ubuntu
     IdentityFile ~/.ssh/my-key.pem
   ```
-
 - [ ] Connect easily: `ssh my-server`
 
 ### Thực Hành - Server Setup
 
 - [ ] Install Docker:
-
   ```bash
   curl -fsSL https://get.docker.com -o get-docker.sh
   sudo sh get-docker.sh
   sudo usermod -aG docker ubuntu
   ```
-
 - [ ] Install Docker Compose
 - [ ] Install Git
 - [ ] Setup firewall: `sudo ufw allow 22,80,443/tcp`
@@ -759,18 +740,18 @@ Tạo complete workflow từ development trên Mac đến production deployment 
 
 ## Documentation
 
-- [ ] Docker Docs: <https://docs.docker.com>
-- [ ] Docker Compose: <https://docs.docker.com/compose>
-- [ ] Git: <https://git-scm.com/book>
-- [ ] AWS EC2: <https://docs.aws.amazon.com/ec2>
-- [ ] Node.js Best Practices: <https://github.com/goldbergyoni/nodebestpractices>
+- [ ] Docker Docs: https://docs.docker.com
+- [ ] Docker Compose: https://docs.docker.com/compose
+- [ ] Git: https://git-scm.com/book
+- [ ] AWS EC2: https://docs.aws.amazon.com/ec2
+- [ ] Node.js Best Practices: https://github.com/goldbergyoni/nodebestpractices
 
 ## Interactive Learning
 
-- [ ] Learn Git Branching: <https://learngitbranching.js.org>
-- [ ] Play with Docker: <https://labs.play-with-docker.com>
-- [ ] Linux Journey: <https://linuxjourney.com>
-- [ ] OverTheWire: <https://overthewire.org/wargames/bandit>
+- [ ] Learn Git Branching: https://learngitbranching.js.org
+- [ ] Play with Docker: https://labs.play-with-docker.com
+- [ ] Linux Journey: https://linuxjourney.com
+- [ ] OverTheWire: https://overthewire.org/wargames/bandit
 
 ## Video Courses
 
@@ -853,56 +834,56 @@ But first, **master the fundamentals** in these 2 months!
 ## Week 1
 
 - Date Started: \***\*\_\_\_\*\***
-- Completed Tasks: _**/**_
+- Completed Tasks: **_ / _**
 - Challenges Faced: \***\*\_\_\_\*\***
 - Key Learnings: \***\*\_\_\_\*\***
 
 ## Week 2
 
 - Date Started: \***\*\_\_\_\*\***
-- Completed Tasks: _**/**_
+- Completed Tasks: **_ / _**
 - Challenges Faced: \***\*\_\_\_\*\***
 - Key Learnings: \***\*\_\_\_\*\***
 
 ## Week 3
 
 - Date Started: \***\*\_\_\_\*\***
-- Completed Tasks: _**/**_
+- Completed Tasks: **_ / _**
 - Challenges Faced: \***\*\_\_\_\*\***
 - Key Learnings: \***\*\_\_\_\*\***
 
 ## Week 4
 
 - Date Started: \***\*\_\_\_\*\***
-- Completed Tasks: _**/**_
+- Completed Tasks: **_ / _**
 - Challenges Faced: \***\*\_\_\_\*\***
 - Key Learnings: \***\*\_\_\_\*\***
 
 ## Week 5
 
 - Date Started: \***\*\_\_\_\*\***
-- Completed Tasks: _**/**_
+- Completed Tasks: **_ / _**
 - Challenges Faced: \***\*\_\_\_\*\***
 - Key Learnings: \***\*\_\_\_\*\***
 
 ## Week 6
 
 - Date Started: \***\*\_\_\_\*\***
-- Completed Tasks: _**/**_
+- Completed Tasks: **_ / _**
 - Challenges Faced: \***\*\_\_\_\*\***
 - Key Learnings: \***\*\_\_\_\*\***
 
 ## Week 7
 
 - Date Started: \***\*\_\_\_\*\***
-- Completed Tasks: _**/**_
+- Completed Tasks: **_ / _**
 - Challenges Faced: \***\*\_\_\_\*\***
 - Key Learnings: \***\*\_\_\_\*\***
 
 ## Week 8
 
 - Date Started: \***\*\_\_\_\*\***
-- Completed Tasks: _**/**_
+- Completed Tasks: **_ / _**
 - Challenges Faced: \***\*\_\_\_\*\***
 - Key Learnings: \***\*\_\_\_\*\***
 

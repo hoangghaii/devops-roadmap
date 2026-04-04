@@ -28,7 +28,7 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ['npm', 'run', 'dev']
+CMD ["npm", "run", "dev"]
 
 # ---------------------------------------------------------------------
 # Builder stage
@@ -116,11 +116,9 @@ RUN chown -R nodejs:nodejs /app
 # All commands after this run as nodejs user
 USER nodejs
 
-USER nodejs
-
 EXPOSE 3000
 
-ENTRYPOINT ['dumb-init', '--']
+ENTRYPOINT ["dumb-init", "--"]
 
 CMD ["node", "build/server.js"]
 
