@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------
 # Install dependencies stage
 # ---------------------------------------------------------------------
-FROM node:20-alpine as deps
+FROM node:24-alpine AS deps
 
 WORKDIR /app
 
@@ -10,26 +10,9 @@ COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile --production=false
 
 # ---------------------------------------------------------------------
-# Development stage
-# ---------------------------------------------------------------------
-FROM node:20-alpine as development
-
-WORKDIR /app
-
-RUN apk add --no-cache dumb-init
-
-COPY --from=deps /app/node_modules ./node_modules
-
-COPY . .
-
-ENTRYPOINT [ "dumb-init", "--" ]
-
-CMD ["yarn", "start:dev"]
-
-# ---------------------------------------------------------------------
 # Build stage
 # ---------------------------------------------------------------------
-FROM node:20-alpine as buidler
+FROM node:24-alpine AS buidler
 
 WORKDIR /app
 
@@ -44,7 +27,7 @@ RUN yarn install --frozen-lockfile --production=true
 # ---------------------------------------------------------------------
 # Production stage
 # ---------------------------------------------------------------------
-FROM node:20-alpine as production
+FROM node:24-alpine AS production
 
 WORKDIR /app
 

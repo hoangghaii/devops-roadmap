@@ -1,0 +1,27 @@
+# ---------------------------------------------------------------------
+# Install dependencies stage
+# ---------------------------------------------------------------------
+FROM node:24-alpine AS deps
+
+WORKDIR /app
+
+COPY package.json yarn.lock ./
+
+RUN yarn install --frozen-lockfile --production=false
+
+# ---------------------------------------------------------------------
+# Development stage
+# ---------------------------------------------------------------------
+FROM node:24-alpine AS development
+
+WORKDIR /app
+
+RUN apk add --no-cache dumb-init
+
+COPY --from=deps /app/node_modules ./node_modules
+
+COPY . .
+
+ENTRYPOINT [ "dumb-init", "--" ]
+
+CMD ["yarn", "start:dev"]

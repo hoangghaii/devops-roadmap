@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------
 # Install dependencies stage
 # ---------------------------------------------------------------------
-FROM node:20-alpine as deps
+FROM node:24-alpine AS deps
 
 WORKDIR /app
 
@@ -10,26 +10,9 @@ COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile --production=false
 
 # ---------------------------------------------------------------------
-# Development stage
-# ---------------------------------------------------------------------
-FROM node:20-alpine as development
-
-WORKDIR /app
-
-RUN apk add --no-cache dumb-init
-
-COPY --from=deps /app/node_modules /node_modules
-
-COPY . .
-
-EXPOSE 5173
-
-CMD ["yarn", "dev", "--host", "0.0.0.0"]
-
-# ---------------------------------------------------------------------
 # Builder stage
 # ---------------------------------------------------------------------
-FROM node:20-alpine as builder
+FROM node:24-alpine AS builder
 
 WORKDIR /app
 
@@ -37,6 +20,9 @@ COPY --from=deps /app/node_modules ./node_modules
 
 COPY . .
 
+ARG VITE_API_URL
+
+ENV NODE_ENV=production
 ENV NODE_ENV=production
 
 RUN yarn build

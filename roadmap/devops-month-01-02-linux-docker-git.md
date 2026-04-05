@@ -314,13 +314,13 @@
 
 ### Mini Project - Containerize Full App
 
-- [ ] Dockerfile cho Express API
-- [ ] Dockerfile cho React frontend
-- [ ] Build both images
-- [ ] Run containers manually
-- [ ] Connect frontend to API container
-- [ ] Mount source code for hot reload
-- [ ] Push images to Docker Hub
+- [x] Dockerfile cho Express API
+- [x] Dockerfile cho React frontend
+- [x] Build both images
+- [x] Run containers manually
+- [x] Connect frontend to API container
+- [x] Mount source code for hot reload
+- [x] Push images to Docker Hub
 
 ---
 
@@ -370,42 +370,42 @@
 
 ### Thực Hành - Docker Compose Commands
 
-- [ ] `docker-compose up -d` (start all services)
-- [ ] `docker-compose ps` (list running services)
-- [ ] `docker-compose logs -f api` (follow API logs)
-- [ ] `docker-compose exec api sh` (exec into container)
-- [ ] `docker-compose restart api` (restart service)
-- [ ] `docker-compose down` (stop & remove containers)
-- [ ] `docker-compose down -v` (also remove volumes)
+- [x] `docker-compose up -d` (start all services)
+- [x] `docker-compose ps` (list running services)
+- [x] `docker-compose logs -f api` (follow API logs)
+- [x] `docker-compose exec api sh` (exec into container)
+- [x] `docker-compose restart api` (restart service)
+- [x] `docker-compose down` (stop & remove containers)
+- [x] `docker-compose down -v` (also remove volumes)
 
 ### Thực Hành - Multi-Service Setup
 
-- [ ] Add frontend service to docker-compose.yml
-- [ ] Add Redis service for caching
-- [ ] Configure networks để isolate services
-- [ ] Setup healthchecks for services
-- [ ] Use environment files: .env.development
+- [x] Add frontend service to docker-compose.yml
+- [x] Add Redis service for caching
+- [x] Configure networks để isolate services
+- [x] Setup healthchecks for services
+- [x] Use environment files: .env.development
 
 ### Thực Hành - Development vs Production
 
-- [ ] Create docker-compose.yml (base)
-- [ ] Create docker-compose.dev.yml (development overrides)
-- [ ] Create docker-compose.prod.yml (production overrides)
-- [ ] Start dev: `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up`
-- [ ] Different configs: hot reload vs optimized builds
+- [x] Create docker-compose.yml (base)
+- [x] Create docker-compose.dev.yml (development overrides)
+- [x] Create docker-compose.prod.yml (production overrides)
+- [x] Start dev: `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up`
+- [x] Different configs: hot reload vs optimized builds
 
 ### Mini Project - Full MERN Stack
 
-- [ ] MongoDB service
-- [ ] Express API service (with hot reload)
-- [ ] React frontend service (with hot reload)
-- [ ] Nginx service (reverse proxy)
-- [ ] Redis service (caching/sessions)
-- [ ] All start với: `docker-compose up`
-- [ ] Healthchecks cho all services
-- [ ] Proper dependency order
-- [ ] Volume mounts for development
-- [ ] Environment variables management
+- [x] MongoDB service
+- [x] Express API service (with hot reload)
+- [x] React frontend service (with hot reload)
+- [x] Nginx service (reverse proxy)
+- [x] Redis service (caching/sessions)
+- [x] All start với: `docker-compose up`
+- [x] Healthchecks cho all services
+- [x] Proper dependency order
+- [x] Volume mounts for development
+- [x] Environment variables management
 
 ---
 
@@ -413,32 +413,32 @@
 
 ### Học - Branching Strategies
 
-- [ ] Git Flow model: main, develop, feature, release, hotfix
-- [ ] GitHub Flow: simple main + feature branches
-- [ ] Trunk-based development
-- [ ] When to use which strategy
+- [x] Git Flow model: main, develop, feature, release, hotfix
+- [x] GitHub Flow: simple main + feature branches
+- [x] Trunk-based development
+- [x] When to use which strategy
 
 ### Học - Advanced Git Commands
 
-- [ ] Interactive rebase: `git rebase -i HEAD~3`
-- [ ] Cherry-pick: `git cherry-pick <commit-hash>`
-- [ ] Stash: `git stash save "message"`
-- [ ] Reflog: `git reflog` để recover lost commits
-- [ ] Reset vs Revert: `git reset`, `git revert`
-- [ ] Amend commit: `git commit --amend`
+- [x] Interactive rebase: `git rebase -i HEAD~3`
+- [x] Cherry-pick: `git cherry-pick <commit-hash>`
+- [x] Stash: `git stash save "message"`
+- [x] Reflog: `git reflog` để recover lost commits
+- [x] Reset vs Revert: `git reset`, `git revert`
+- [x] Amend commit: `git commit --amend`
 
 ### Thực Hành - Branching
 
-- [ ] Create feature branch: `git checkout -b feature/user-auth`
-- [ ] Make commits với meaningful messages
-- [ ] Rebase onto develop: `git rebase develop`
-- [ ] Resolve merge conflicts
-- [ ] Squash commits: `git rebase -i HEAD~5`
-- [ ] Force push after rebase: `git push -f origin feature/user-auth`
+- [x] Create feature branch: `git checkout -b feature/user-auth`
+- [x] Make commits với meaningful messages
+- [x] Rebase onto develop: `git rebase develop`
+- [x] Resolve merge conflicts
+- [x] Squash commits: `git rebase -i HEAD~5`
+- [x] Force push after rebase: `git push -f origin feature/user-auth`
 
 ### Thực Hành - Commit Messages
 
-- [ ] Follow Conventional Commits format
+- [x] Follow Conventional Commits format
 
   ```
   feat: add user authentication
@@ -448,22 +448,22 @@
   test: add unit tests for auth
   ```
 
-- [ ] Write meaningful commit messages
-- [ ] Keep commits atomic (one logical change)
-- [ ] Use present tense: "add feature" not "added feature"
+- [x] Write meaningful commit messages
+- [x] Keep commits atomic (one logical change)
+- [x] Use present tense: "add feature" not "added feature"
 
 ### Thực Hành - Advanced Scenarios
 
-- [ ] Undo last commit (keep changes): `git reset HEAD~1`
-- [ ] Undo last commit (discard changes): `git reset --hard HEAD~1`
-- [ ] Recover deleted branch: use reflog
-- [ ] Cherry-pick bug fix từ main vào develop
-- [ ] Stash changes, switch branch, apply stash
-- [ ] Interactive rebase để reorder/edit commits
+- [x] Undo last commit (keep changes): `git reset HEAD~1`
+- [x] Undo last commit (discard changes): `git reset --hard HEAD~1`
+- [x] Recover deleted branch: use reflog
+- [x] Cherry-pick bug fix từ main vào develop
+- [x] Stash changes, switch branch, apply stash
+- [x] Interactive rebase để reorder/edit commits
 
 ### Thực Hành - Git Hooks
 
-- [ ] Pre-commit hook: run linter
+- [x] Pre-commit hook: run linter
 
   ```bash
   #!/bin/sh
@@ -474,24 +474,24 @@
   fi
   ```
 
-- [ ] Pre-commit hook: run tests
-- [ ] Pre-push hook: check branch name
-- [ ] Commit-msg hook: validate commit message format
-- [ ] Setup Husky: `npm install husky -D`
-- [ ] Setup lint-staged: only lint staged files
+- [x] Pre-commit hook: run tests
+- [x] Pre-push hook: check branch name
+- [x] Commit-msg hook: validate commit message format
+- [x] Setup Husky: `npm install husky -D`
+- [x] Setup lint-staged: only lint staged files
 
 ### Mini Project - Git Workflow
 
-- [ ] Setup Git Flow cho project
-- [ ] Create feature branch
-- [ ] Make several commits
-- [ ] Interactive rebase để clean history
-- [ ] Submit pull request
-- [ ] Code review process
-- [ ] Merge to develop
-- [ ] Create release branch
-- [ ] Merge release to main
-- [ ] Tag release: `git tag -a v1.0.0 -m "Release v1.0.0"`
+- [x] Setup Git Flow cho project
+- [x] Create feature branch
+- [x] Make several commits
+- [x] Interactive rebase để clean history
+- [x] Submit pull request
+- [x] Code review process
+- [x] Merge to develop
+- [x] Create release branch
+- [x] Merge release to main
+- [x] Tag release: `git tag -a v1.0.0 -m "Release v1.0.0"`
 
 ---
 
@@ -499,16 +499,16 @@
 
 ### Học - AWS EC2 Basics
 
-- [ ] EC2 instance types
-- [ ] Security groups (firewall rules)
-- [ ] SSH key pairs
-- [ ] Elastic IPs
-- [ ] Free tier limits
+- [x] EC2 instance types
+- [x] Security groups (firewall rules)
+- [x] SSH key pairs
+- [x] Elastic IPs
+- [x] Free tier limits
 
 ### Thực Hành - Launch EC2 Instance
 
-- [ ] Sign up for AWS account
-- [ ] Navigate to EC2 dashboard
+- [x] Sign up for AWS account
+- [x] Navigate to EC2 dashboard
 - [ ] Launch Ubuntu 22.04 t2.micro instance
 - [ ] Create/download SSH key pair
 - [ ] Configure security group:

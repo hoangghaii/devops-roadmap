@@ -1,0 +1,29 @@
+# ---------------------------------------------------------------------
+# Install dependencies stage
+# ---------------------------------------------------------------------
+FROM node:24-alpine AS deps
+
+WORKDIR /app
+
+COPY package.json yarn.lock ./
+
+RUN yarn install --frozen-lockfile --production=false
+
+# ---------------------------------------------------------------------
+# Development stage
+# ---------------------------------------------------------------------
+FROM node:24-alpine AS development
+
+WORKDIR /app
+
+ARG VITE_API_URL
+
+ENV VITE_API_URL=$VITE_API_URL
+
+COPY --from=deps /app/node_modules ./node_modules
+
+COPY . .
+
+EXPOSE 5173
+
+CMD ["yarn", "dev", "--host", "0.0.0.0"]
