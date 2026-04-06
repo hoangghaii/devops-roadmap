@@ -1,0 +1,39 @@
+name: Front-end test
+
+on:
+  push:
+    paths:
+      - 'practice/month2/week1/front-end/**'
+  pull_request:
+    paths:
+      - 'practice/month2/week1/front-end/**'
+
+jobs:
+  test:
+    name: Test front-end
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: practice/month2/week1/front-end
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      # Step 2: Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: yarn
+          cache-dependency-path: 'practice/month2/week1/front-end/yarn.lock'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      # Step 4: Run tests
+      - name: Run tests
+        run: yarn test
