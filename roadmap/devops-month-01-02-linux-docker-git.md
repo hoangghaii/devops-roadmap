@@ -510,14 +510,14 @@
 - [x] Sign up for AWS account
 - [x] Navigate to EC2 dashboard
 - [ ] Launch Ubuntu 22.04 t2.micro instance
-- [ ] Create/download SSH key pair
+- [x] Create/download SSH key pair
 - [ ] Configure security group:
   - SSH (port 22) from your IP
   - HTTP (port 80) from anywhere
   - HTTPS (port 443) from anywhere
 - [ ] Allocate Elastic IP (optional)
-- [ ] Save key: `mv ~/Downloads/my-key.pem ~/.ssh/`
-- [ ] Set permissions: `chmod 400 ~/.ssh/my-key.pem`
+- [x] Save key: `mv ~/Downloads/my-key.pem ~/.ssh/`
+- [x] Set permissions: `chmod 400 ~/.ssh/my-key.pem`
 
 ### Thực Hành - SSH Connection
 
