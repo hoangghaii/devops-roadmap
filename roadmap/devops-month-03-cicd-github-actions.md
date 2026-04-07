@@ -9,6 +9,7 @@
 ## Mục Tiêu Tháng 3
 
 Sau tháng này, bạn sẽ:
+
 - [x] Hiểu khái niệm CI/CD và tầm quan trọng
 - [x] Viết được GitHub Actions workflows
 - [x] Tự động hóa testing, building, deployment
@@ -23,18 +24,20 @@ Sau tháng này, bạn sẽ:
 ## Học - CI/CD Concepts
 
 ### Theory
+
 - [x] Continuous Integration (CI) là gì?
 - [x] Continuous Deployment (CD) vs Continuous Delivery
 - [x] Benefits của CI/CD:
-  - Faster feedback
-  - Early bug detection
-  - Automated testing
-  - Consistent deployments
+    - Faster feedback
+    - Early bug detection
+    - Automated testing
+    - Consistent deployments
 - [x] CI/CD pipeline stages:
-  - Source → Build → Test → Deploy
+    - Source → Build → Test → Deploy
 - [x] Popular CI/CD tools: Jenkins, GitLab CI, CircleCI, GitHub Actions
 
 ### GitHub Actions Architecture
+
 - [x] Workflows: automated processes
 - [x] Jobs: group of steps
 - [x] Steps: individual tasks
@@ -45,6 +48,7 @@ Sau tháng này, bạn sẽ:
 ## Thực Hành - First GitHub Actions Workflow
 
 ### Setup Repository
+
 - [x] Create new repository: `nodejs-cicd-demo`
 - [x] Create simple Express API:
   ```javascript
@@ -79,6 +83,7 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Create First Workflow
+
 - [x] Create `.github/workflows/ci.yml`:
   ```yaml
   name: CI Pipeline
@@ -113,6 +118,7 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Test Workflow
+
 - [x] Push code lên GitHub
 - [x] Navigate to Actions tab
 - [x] Verify workflow chạy tự động
@@ -122,6 +128,7 @@ Sau tháng này, bạn sẽ:
 ## Thực Hành - Advanced Triggers
 
 ### Different Trigger Types
+
 - [x] Push to specific branches:
   ```yaml
   on:
@@ -157,6 +164,7 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Path Filters
+
 - [x] Trigger only when specific files change:
   ```yaml
   on:
@@ -170,15 +178,16 @@ Sau tháng này, bạn sẽ:
   ```
 
 ## Mini Project Week 1
+
 - [x] Create Node.js API với tests
 - [x] Setup ESLint và Prettier
 - [x] GitHub Actions workflow:
-  - Run on push to main/develop
-  - Run on pull requests
-  - Install dependencies
-  - Run linter
-  - Run tests
-  - Report results
+    - Run on push to main/develop
+    - Run on pull requests
+    - Install dependencies
+    - Run linter
+    - Run tests
+    - Report results
 - [x] Add status badge to README
 - [x] Test với pull request workflow
 
@@ -189,6 +198,7 @@ Sau tháng này, bạn sẽ:
 ## Học - Build Processes
 
 ### Build Strategies
+
 - [x] Development vs Production builds
 - [x] Build artifacts: compiled code, bundled assets
 - [x] Caching dependencies để faster builds
@@ -196,6 +206,7 @@ Sau tháng này, bạn sẽ:
 - [x] Docker layer caching
 
 ### Docker Registry Options
+
 - [x] Docker Hub (free public, limited private)
 - [x] GitHub Container Registry (ghcr.io)
 - [ ] AWS ECR
@@ -204,6 +215,7 @@ Sau tháng này, bạn sẽ:
 ## Thực Hành - Docker Build trong CI
 
 ### Setup Docker Build Workflow
+
 - [x] Create `.github/workflows/docker-build.yml`:
   ```yaml
   name: Docker Build & Push
@@ -261,6 +273,7 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Docker Hub Alternative
+
 - [x] Create Docker Hub account
 - [x] Generate access token
 - [x] Add to GitHub Secrets: `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`
@@ -276,6 +289,7 @@ Sau tháng này, bạn sẽ:
 ## Thực Hành - Optimized Builds
 
 ### Multi-Stage Dockerfile
+
 - [x] Review và optimize Dockerfile:
   ```dockerfile
   # Build stage
@@ -295,7 +309,8 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Build Caching
-- [ ] Enable GitHub Actions cache:
+
+- [x] Enable GitHub Actions cache:
   ```yaml
   - name: Cache Docker layers
     uses: actions/cache@v3
@@ -307,7 +322,8 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Test Built Image
-- [ ] Add step to verify image works:
+
+- [x] Add step to verify image works:
   ```yaml
   - name: Test image
     run: |
@@ -320,20 +336,22 @@ Sau tháng này, bạn sẽ:
 ## Thực Hành - Semantic Versioning
 
 ### Git Tags và Releases
-- [ ] Tag commits với semantic versioning:
+
+- [x] Tag commits với semantic versioning:
   ```bash
   git tag -a v1.0.0 -m "Release version 1.0.0"
   git push origin v1.0.0
   ```
 
 - [ ] Workflow tự động tag Docker images:
-  - `latest`: most recent build
-  - `v1.0.0`: specific version
-  - `main-sha123`: branch + commit
-  - `staging`: environment tag
+    - `latest`: most recent build
+    - `v1.0.0`: specific version
+    - `main-sha123`: branch + commit
+    - `staging`: environment tag
 
 ### Automated Release Notes
-- [ ] Add release notes generation:
+
+- [x] Add release notes generation:
   ```yaml
   - name: Create Release
     uses: actions/create-release@v1
@@ -347,15 +365,16 @@ Sau tháng này, bạn sẽ:
   ```
 
 ## Mini Project Week 2
-- [ ] Optimize Dockerfile cho Node.js app
-- [ ] GitHub Actions workflow:
-  - Build Docker image on push to main
-  - Tag với commit SHA và branch name
-  - Push to GitHub Container Registry
-  - Cache layers for faster builds
-  - Test image before pushing
-- [ ] Add semantic versioning với Git tags
-- [ ] Verify images trên GitHub Packages
+
+- [x] Optimize Dockerfile cho Node.js app
+- [x] GitHub Actions workflow:
+    - Build Docker image on push to main
+    - Tag với commit SHA và branch name
+    - Push to GitHub Container Registry
+    - Cache layers for faster builds
+    - Test image before pushing
+- [x] Add semantic versioning với Git tags
+- [x] Verify images trên GitHub Packages
 
 ---
 
@@ -364,12 +383,15 @@ Sau tháng này, bạn sẽ:
 ## Học - Testing in CI/CD
 
 ### Testing Pyramid
-- [x] Unit tests: individual functions
-- [x] Integration tests: component interactions
-- [x] E2E tests: full user workflows
-- [x] When to run each type
+
+- [ ] Unit tests: individual functions
+- [ ] Integration tests: component interactions
+- [ ] E2E tests: full user workflows
+- [ ] When to run each type
+  [automated-testing-quality-gates.md](../docs/month3/week3/automated-testing-quality-gates.md)
 
 ### Code Quality Tools
+
 - [x] Linters: ESLint, Prettier
 - [ ] Security scanners: npm audit, Snyk
 - [ ] Code coverage: Jest, Istanbul
@@ -378,6 +400,7 @@ Sau tháng này, bạn sẽ:
 ## Thực Hành - Comprehensive Testing Pipeline
 
 ### Unit & Integration Tests
+
 - [ ] Add test coverage reporting:
   ```yaml
   - name: Run tests with coverage
@@ -391,6 +414,7 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Code Quality Checks
+
 - [x] Add linting job:
   ```yaml
   lint:
@@ -406,6 +430,7 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Security Scanning
+
 - [ ] Add dependency vulnerability check:
   ```yaml
   security:
@@ -424,6 +449,7 @@ Sau tháng này, bạn sẽ:
 ## Thực Hành - Matrix Builds
 
 ### Test Multiple Node Versions
+
 - [ ] Matrix strategy để test compatibility:
   ```yaml
   test:
@@ -443,6 +469,7 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Multiple OS Testing
+
 - [ ] Test trên different operating systems:
   ```yaml
   test:
@@ -457,15 +484,17 @@ Sau tháng này, bạn sẽ:
 ## Thực Hành - Quality Gates
 
 ### Branch Protection Rules
+
 - [ ] Navigate to Settings → Branches
 - [ ] Add rule for `main` branch:
-  - Require pull request reviews
-  - Require status checks (CI must pass)
-  - Require branches be up to date
-  - Include administrators
+    - Require pull request reviews
+    - Require status checks (CI must pass)
+    - Require branches be up to date
+    - Include administrators
 - [ ] Test by creating PR with failing tests
 
 ### Code Review Automation
+
 - [x] Add automatic PR comments:
   ```yaml
   - name: Comment test results
@@ -482,16 +511,17 @@ Sau tháng này, bạn sẽ:
   ```
 
 ## Mini Project Week 3
+
 - [ ] Comprehensive test suite:
-  - Unit tests (80%+ coverage)
-  - Integration tests
-  - API endpoint tests
+    - Unit tests (80%+ coverage)
+    - Integration tests
+    - API endpoint tests
 - [ ] GitHub Actions workflow:
-  - Lint code (ESLint + Prettier)
-  - Run tests với coverage report
-  - Security audit (npm audit + Snyk)
-  - Test multiple Node versions (16, 18, 20)
-  - Upload coverage to Codecov
+    - Lint code (ESLint + Prettier)
+    - Run tests với coverage report
+    - Security audit (npm audit + Snyk)
+    - Test multiple Node versions (16, 18, 20)
+    - Upload coverage to Codecov
 - [ ] Branch protection rules cho main
 - [ ] Quality gates: CI must pass before merge
 
@@ -502,12 +532,14 @@ Sau tháng này, bạn sẽ:
 ## Học - Deployment Strategies
 
 ### Deployment Types
+
 - [x] Rolling deployment: gradual update
 - [x] Blue-Green deployment: parallel environments
 - [x] Canary deployment: partial rollout
 - [x] Recreate: stop old, start new
 
 ### Environment Management
+
 - [ ] Development
 - [ ] Staging
 - [ ] Production
@@ -516,14 +548,16 @@ Sau tháng này, bạn sẽ:
 ## Thực Hành - Deploy to EC2
 
 ### Setup Deployment Secrets
+
 - [ ] Add GitHub Secrets:
-  - `EC2_HOST`: server IP
-  - `EC2_USERNAME`: ubuntu
-  - `EC2_SSH_KEY`: private SSH key
-  - `DOCKERHUB_USERNAME`
-  - `DOCKERHUB_TOKEN`
+    - `EC2_HOST`: server IP
+    - `EC2_USERNAME`: ubuntu
+    - `EC2_SSH_KEY`: private SSH key
+    - `DOCKERHUB_USERNAME`
+    - `DOCKERHUB_TOKEN`
 
 ### SSH Deployment Workflow
+
 - [ ] Create `.github/workflows/deploy.yml`:
   ```yaml
   name: Deploy to Production
@@ -557,6 +591,7 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Docker-Based Deployment
+
 - [ ] Alternative: deploy via Docker images:
   ```yaml
   deploy:
@@ -585,6 +620,7 @@ Sau tháng này, bạn sẽ:
 ## Thực Hành - Multiple Environments
 
 ### Environment-Specific Workflows
+
 - [ ] Create `.github/workflows/deploy-staging.yml`:
   ```yaml
   name: Deploy to Staging
@@ -612,16 +648,18 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### GitHub Environments
+
 - [ ] Navigate to Settings → Environments
 - [ ] Create `staging` environment:
-  - No protection rules
-  - Add staging secrets
+    - No protection rules
+    - Add staging secrets
 - [ ] Create `production` environment:
-  - Required reviewers (yourself)
-  - Deployment branches: only main
-  - Add production secrets
+    - Required reviewers (yourself)
+    - Deployment branches: only main
+    - Add production secrets
 
 ### Manual Approval for Production
+
 - [ ] Add approval step:
   ```yaml
   deploy-production:
@@ -640,6 +678,7 @@ Sau tháng này, bạn sẽ:
 ## Thực Hành - Rollback Strategy
 
 ### Versioned Deployments
+
 - [ ] Keep multiple image versions:
   ```yaml
   - name: Deploy with version tag
@@ -652,6 +691,7 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Manual Rollback Workflow
+
 - [ ] Create `.github/workflows/rollback.yml`:
   ```yaml
   name: Rollback Deployment
@@ -684,6 +724,7 @@ Sau tháng này, bạn sẽ:
 ## Thực Hành - Health Checks & Notifications
 
 ### Post-Deployment Verification
+
 - [ ] Add health check after deploy:
   ```yaml
   - name: Verify deployment
@@ -693,6 +734,7 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Slack Notifications
+
 - [ ] Add Slack webhook secret: `SLACK_WEBHOOK_URL`
 - [ ] Notify on deployment:
   ```yaml
@@ -706,20 +748,21 @@ Sau tháng này, bạn sẽ:
   ```
 
 ## Mini Project Week 4
+
 - [ ] Complete CI/CD pipeline:
-  - **CI (on push/PR):**
-    - Lint code
-    - Run tests
-    - Security scan
-    - Build Docker image
-    - Push to registry
-  - **CD (on merge to main):**
-    - Deploy to staging automatically
-    - Run smoke tests
-    - Require manual approval
-    - Deploy to production
-    - Health check verification
-    - Slack notification
+    - **CI (on push/PR):**
+        - Lint code
+        - Run tests
+        - Security scan
+        - Build Docker image
+        - Push to registry
+    - **CD (on merge to main):**
+        - Deploy to staging automatically
+        - Run smoke tests
+        - Require manual approval
+        - Deploy to production
+        - Health check verification
+        - Slack notification
 - [ ] Multiple environments: dev, staging, production
 - [ ] Rollback workflow
 - [ ] Environment secrets management
@@ -730,9 +773,11 @@ Sau tháng này, bạn sẽ:
 # CAPSTONE PROJECT: Production-Grade CI/CD Pipeline
 
 ## Objective
+
 Build complete CI/CD pipeline cho full-stack application với automated testing, deployment, và monitoring.
 
 ## Application Stack
+
 - [ ] Express.js REST API
 - [ ] React frontend
 - [ ] MongoDB database
@@ -742,18 +787,20 @@ Build complete CI/CD pipeline cho full-stack application với automated testing
 ## Requirements Checklist
 
 ### [ ] 1. Source Control
+
 - [ ] Monorepo hoặc separate repos
 - [ ] Git Flow branching strategy:
-  - `main`: production code
-  - `develop`: development code
-  - `feature/*`: feature branches
-  - `hotfix/*`: urgent fixes
+    - `main`: production code
+    - `develop`: development code
+    - `feature/*`: feature branches
+    - `hotfix/*`: urgent fixes
 - [ ] Protected branches với required reviews
 - [ ] Conventional Commits
 
 ### [ ] 2. Continuous Integration
 
 **On Push/PR to any branch:**
+
 - [ ] Install dependencies (with caching)
 - [ ] Run linters (ESLint, Prettier)
 - [ ] Run unit tests
@@ -761,18 +808,21 @@ Build complete CI/CD pipeline cho full-stack application với automated testing
 - [ ] Security audit (npm audit, Snyk)
 
 **On Push to develop:**
+
 - [ ] Build Docker images
 - [ ] Tag with branch + SHA
 - [ ] Push to staging registry
 - [ ] Run integration tests
 
 **On Push to main:**
+
 - [ ] Build production Docker images
 - [ ] Tag with version + latest
 - [ ] Push to production registry
 - [ ] Generate release notes
 
 ### [ ] 3. Automated Testing
+
 - [ ] Unit tests: 80%+ coverage
 - [ ] Integration tests: API endpoints
 - [ ] E2E tests: critical user flows
@@ -782,12 +832,14 @@ Build complete CI/CD pipeline cho full-stack application với automated testing
 ### [ ] 4. Multi-Environment Deployment
 
 **Staging Environment:**
+
 - [ ] Auto-deploy on merge to develop
 - [ ] Staging-specific configs
 - [ ] Smoke tests after deployment
 - [ ] Accessible for QA testing
 
 **Production Environment:**
+
 - [ ] Manual approval required
 - [ ] Deploy on merge to main
 - [ ] Zero-downtime deployment
@@ -795,6 +847,7 @@ Build complete CI/CD pipeline cho full-stack application với automated testing
 - [ ] Automatic rollback on failure
 
 ### [ ] 5. Docker Optimization
+
 - [ ] Multi-stage builds
 - [ ] Layer caching
 - [ ] Image size < 150MB
@@ -802,6 +855,7 @@ Build complete CI/CD pipeline cho full-stack application với automated testing
 - [ ] Versioned properly
 
 ### [ ] 6. Monitoring & Alerting
+
 - [ ] Deployment notifications (Slack/Email)
 - [ ] Health check endpoints
 - [ ] Error tracking (Sentry optional)
@@ -809,17 +863,19 @@ Build complete CI/CD pipeline cho full-stack application với automated testing
 - [ ] Failed deployment alerts
 
 ### [ ] 7. Documentation
+
 - [ ] README with:
-  - Architecture diagram
-  - Setup instructions
-  - CI/CD pipeline explanation
-  - Deployment process
-  - Rollback procedure
+    - Architecture diagram
+    - Setup instructions
+    - CI/CD pipeline explanation
+    - Deployment process
+    - Rollback procedure
 - [ ] CONTRIBUTING.md
 - [ ] Environment variables documentation
 - [ ] API documentation
 
 ### [ ] 8. Security
+
 - [ ] No secrets in code
 - [ ] Environment variables via GitHub Secrets
 - [ ] Security scanning in CI
@@ -843,6 +899,7 @@ Build complete CI/CD pipeline cho full-stack application với automated testing
 ## Testing Checklist
 
 ### Pre-Deployment Tests
+
 - [ ] All unit tests pass
 - [ ] All integration tests pass
 - [ ] Code coverage meets threshold
@@ -850,6 +907,7 @@ Build complete CI/CD pipeline cho full-stack application với automated testing
 - [ ] Docker images build successfully
 
 ### Post-Deployment Tests
+
 - [ ] Health check returns 200
 - [ ] API endpoints respond correctly
 - [ ] Database connections work
@@ -857,6 +915,7 @@ Build complete CI/CD pipeline cho full-stack application với automated testing
 - [ ] No console errors
 
 ## Bonus Challenges
+
 - [ ] Blue-Green deployment strategy
 - [ ] Canary deployment với gradual rollout
 - [ ] Automated performance testing
@@ -873,12 +932,14 @@ Build complete CI/CD pipeline cho full-stack application với automated testing
 After Month 3, you should be able to:
 
 ### CI/CD Fundamentals
+
 - [ ] Explain CI/CD benefits
 - [ ] Describe pipeline stages
 - [ ] Choose appropriate triggers
 - [ ] Design workflow dependencies
 
 ### GitHub Actions
+
 - [ ] Write workflow files from scratch
 - [ ] Use marketplace actions effectively
 - [ ] Implement matrix builds
@@ -886,6 +947,7 @@ After Month 3, you should be able to:
 - [ ] Debug failed workflows
 
 ### Automated Testing
+
 - [ ] Integrate different test types
 - [ ] Generate coverage reports
 - [ ] Implement quality gates
@@ -893,6 +955,7 @@ After Month 3, you should be able to:
 - [ ] Performance testing
 
 ### Docker in CI/CD
+
 - [ ] Build optimized images
 - [ ] Implement layer caching
 - [ ] Tag images properly
@@ -900,6 +963,7 @@ After Month 3, you should be able to:
 - [ ] Security scan images
 
 ### Deployment
+
 - [ ] Deploy to multiple environments
 - [ ] Implement approval workflows
 - [ ] Zero-downtime deployment
@@ -911,22 +975,26 @@ After Month 3, you should be able to:
 # Resources
 
 ## Documentation
+
 - [ ] GitHub Actions: https://docs.github.com/actions
 - [ ] Docker Build: https://docs.docker.com/build/ci/github-actions/
 - [ ] GitHub Environments: https://docs.github.com/actions/deployment/environments
 
 ## Learning Platforms
+
 - [ ] GitHub Actions by Example: https://www.actionsbyexample.com
 - [ ] GitHub Learning Lab: CI/CD courses
 - [ ] FreeCodeCamp: GitHub Actions tutorial (YouTube)
 
 ## Tools & Services
+
 - [ ] GitHub Container Registry (ghcr.io)
 - [ ] Codecov: https://codecov.io
 - [ ] Snyk: https://snyk.io
 - [ ] Sentry: https://sentry.io
 
 ## Best Practices
+
 - [ ] GitHub Actions Best Practices
 - [ ] Docker Best Practices
 - [ ] The Twelve-Factor App: https://12factor.net
@@ -936,23 +1004,27 @@ After Month 3, you should be able to:
 # Common Issues & Solutions
 
 ## Workflow Not Triggering
+
 - [ ] Check workflow syntax with VS Code extension
 - [ ] Verify trigger conditions match your use case
 - [ ] Check if workflows are enabled in repo settings
 
 ## Build Failures
+
 - [ ] Review logs carefully
 - [ ] Test commands locally first
 - [ ] Check environment variables are set
 - [ ] Verify dependencies are cached correctly
 
 ## Docker Build Issues
+
 - [ ] Ensure Dockerfile is at root
 - [ ] Check .dockerignore excludes correctly
 - [ ] Verify build context is correct
 - [ ] Use `docker build` locally first
 
 ## Deployment Failures
+
 - [ ] Verify SSH keys are correct format
 - [ ] Check server firewall rules
 - [ ] Ensure target directory exists
@@ -978,30 +1050,35 @@ After mastering CI/CD with GitHub Actions, you'll learn:
 # Progress Tracking
 
 ## Week 1: CI/CD Fundamentals
+
 - Date Started: ___________
 - Completed Tasks: ___ / ___
 - Key Learnings: ___________
 - Challenges: ___________
 
 ## Week 2: Building & Docker
+
 - Date Started: ___________
 - Completed Tasks: ___ / ___
 - Key Learnings: ___________
 - Challenges: ___________
 
 ## Week 3: Testing & Quality
+
 - Date Started: ___________
 - Completed Tasks: ___ / ___
 - Key Learnings: ___________
 - Challenges: ___________
 
 ## Week 4: Deployment
+
 - Date Started: ___________
 - Completed Tasks: ___ / ___
 - Key Learnings: ___________
 - Challenges: ___________
 
 ## Capstone Project
+
 - Date Started: ___________
 - Date Completed: ___________
 - GitHub Repo: ___________

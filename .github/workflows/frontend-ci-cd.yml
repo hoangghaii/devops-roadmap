@@ -2,18 +2,28 @@ name: Frontend CI - CD
 
 on:
   push:
+    branches:
+      - main
+      - master
+      - dev*
+      - staging
+    tags:
+      - 'v*'
     paths:
       - 'practice/month2/week1/front-end/**'
   pull_request:
+    branches:
+      - main
+      - master
     paths:
       - 'practice/month2/week1/front-end/**'
 
 env:
   NODE_VERSION: '24'
-#  REGISTRY: ghcr.io
-  REGISTRY: docker.io
-#  IMAGE_NAME: ${{ github.repository }}
-  IMAGE_NAME: nguyenhoanghai/devops-roadmap
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  #  REGISTRY: docker.io
+  #  IMAGE_NAME: nguyenhoanghai/devops-roadmap # For dockerhub
   FRONTEND_DIR: practice/month2/week1/front-end
 
 jobs:
@@ -99,16 +109,24 @@ jobs:
     name: Build Docker Image
     runs-on: ubuntu-latest
     needs: build
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master' || github.event_name != 'pull_request'
 
     permissions:
       contents: read
-#      packages: write  // Only use with ghrc
+      packages: write  # Only use with ghrc
 
     steps:
       # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v6
+
+      - name: Cache Docker layers
+        uses: actions/cache@v4
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
 
       # Step 2: Setup Docker Buildx
       - name: Setup Docker Buildx
@@ -117,13 +135,13 @@ jobs:
       # Step 3: Login docker
       - name: Login to github container registry
         uses: docker/login-action@v4
-#        with:
-#          registry: ${{ env.REGISTRY }}
-#          username: ${{ github.actor }}
-#          password: ${{ secrets.GITHUB_TOKEN }}
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      #        with:
+      #          username: ${{ secrets.DOCKERHUB_USERNAME }}
+      #          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       # Step 4: Extract metadata
       - name: Extract metadata
@@ -132,10 +150,27 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=ref,event=branch
-            type=sha,prefix={{branch}}-
-            type=semver,pattern={{version}}
+            # Tag: latest (cho main branch)
             type=raw,value=latest,enable={{is_default_branch}}
+            
+            # Tag: v1.0.0 (từ git tag)
+            type=semver,pattern={{version}}           # v1.0.0
+            type=semver,pattern={{major}}.{{minor}}   # v1.0
+            type=semver,pattern={{major}}             # v1
+            
+            # Tag: main-sha123abc (branch + commit)
+            type=sha,prefix={{branch}}-,format=short
+            
+            # Tag: staging (từ branch name)
+            type=ref,event=branch
+            
+            # Tag: pr-123 (từ PR number)
+            type=ref,event=pr
+            
+            # Environment tags
+            type=raw,value=production,enable=${{ github.ref == 'refs/heads/main' }}
+            type=raw,value=staging,enable=${{ github.ref == 'refs/heads/staging' }}
+            type=raw,value=development,enable=${{ github.ref == 'refs/heads/develop' }}
 
       # Step 5: Build and push
       - name: Build and push
