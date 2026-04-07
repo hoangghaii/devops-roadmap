@@ -157,7 +157,7 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Path Filters
-- [ ] Trigger only when specific files change:
+- [x] Trigger only when specific files change:
   ```yaml
   on:
     push:
@@ -172,7 +172,7 @@ Sau tháng này, bạn sẽ:
 ## Mini Project Week 1
 - [x] Create Node.js API với tests
 - [x] Setup ESLint và Prettier
-- [ ] GitHub Actions workflow:
+- [x] GitHub Actions workflow:
   - Run on push to main/develop
   - Run on pull requests
   - Install dependencies
@@ -261,10 +261,10 @@ Sau tháng này, bạn sẽ:
   ```
 
 ### Docker Hub Alternative
-- [ ] Create Docker Hub account
-- [ ] Generate access token
-- [ ] Add to GitHub Secrets: `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`
-- [ ] Update workflow để push to Docker Hub:
+- [x] Create Docker Hub account
+- [x] Generate access token
+- [x] Add to GitHub Secrets: `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`
+- [x] Update workflow để push to Docker Hub:
   ```yaml
   - name: Log in to Docker Hub
     uses: docker/login-action@v2
