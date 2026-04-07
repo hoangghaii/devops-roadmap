@@ -12,7 +12,8 @@ env:
   NODE_VERSION: '24'
 #  REGISTRY: ghcr.io
   REGISTRY: docker.io
-  IMAGE_NAME: ${{ github.repository }}
+#  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: nguyenhoanghai/devops-roadmap
   FRONTEND_DIR: practice/month2/week1/front-end
 
 jobs:
