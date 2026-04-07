@@ -12,6 +12,7 @@ env:
   NODE_VERSION: '24'
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  FRONTEND_DIR: practice/month2/week1/front-end
 
 jobs:
   # ============================================================================
@@ -23,7 +24,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: practice/month2/week1/front-end
+        working-directory: ${{ env.FRONTEND_DIR }}
 
     steps:
       # Step 1: Checkout code
@@ -34,9 +35,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '24'
+          node-version: ${{ env.NODE_VERSION }}
           cache: yarn
-          cache-dependency-path: 'practice/month2/week1/front-end/yarn.lock'
+          cache-dependency-path: '${{ env.FRONTEND_DIR }}/yarn.lock'
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -52,10 +53,11 @@ jobs:
   build:
     name: Build application
     runs-on: ubuntu-latest
+    needs: test
 
     defaults:
       run:
-        working-directory: practice/month2/week1/front-end
+        working-directory: ${{ env.FRONTEND_DIR }}
 
     steps:
       # Step 1: Checkout repository
@@ -68,7 +70,7 @@ jobs:
         with:
           node-version: '24'
           cache: yarn
-          cache-dependency-path: 'practice/month2/week1/front-end/yarn.lock'
+          cache-dependency-path: '${{ env.FRONTEND_DIR }}/yarn.lock'
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -96,10 +98,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     if: github.ref == 'refs/heads/master'
-
-    defaults:
-      run:
-        working-directory: practice/month2/week1/front-end
 
     permissions:
       contents: read
@@ -132,14 +130,18 @@ jobs:
             type=ref,event=branch
             type=sha,prefix={{branch}}-
             type=semver,pattern={{version}}
+            type=raw,value=latest,enable={{is_default_branch}}
 
       # Step 5: Build and push
       - name: Build and push
         uses: docker/build-push-action@v7
         with:
-          context: .
+          context: ${{ env.FRONTEND_DIR }}
+          file: ${{ env.FRONTEND_DIR }}/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            VITE_API_URL=${{ secrets.VITE_API_URL }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
