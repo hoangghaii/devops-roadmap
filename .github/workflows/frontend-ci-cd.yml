@@ -10,7 +10,8 @@ on:
 
 env:
   NODE_VERSION: '24'
-  REGISTRY: ghcr.io
+#  REGISTRY: ghcr.io
+  REGISTRY: docker.io
   IMAGE_NAME: ${{ github.repository }}
   FRONTEND_DIR: practice/month2/week1/front-end
 
@@ -86,8 +87,8 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v6
         with:
-          name: dist
-          path: dist/
+          name: frontend-dist
+          path: ${{ env.FRONTEND_DIR }}/dist/
           retention-days: 7
 
   # ============================================================================
@@ -101,7 +102,7 @@ jobs:
 
     permissions:
       contents: read
-      packages: write
+#      packages: write  // Only use with ghrc
 
     steps:
       # Step 1: Checkout repository
