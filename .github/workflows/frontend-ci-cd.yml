@@ -72,7 +72,7 @@ jobs:
 
       # Step 3: Install dependencies
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --production=true
+        run: yarn install --frozen-lockfile
 
       # Step 4: Build application
       - name: Build application
